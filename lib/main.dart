@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sandbox/verification_screen/state/screen_state.dart';
 import 'package:sandbox/verification_screen/view/verification_view.dart';
 
@@ -16,7 +17,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: ScreenState(isError: false, phoneNumber: "", child: const VerificationView()),
+      home: ChangeNotifierProvider<ScreenState>(
+        create: (context) => ScreenState("", false),
+        child: Consumer<ScreenState>(
+          builder: ((context, value, child) => const VerificationView()),
+        )
+      )
     );
   }
 }

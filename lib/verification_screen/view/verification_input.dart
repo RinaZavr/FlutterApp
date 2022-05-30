@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sandbox/const_style.dart';
 import 'package:sandbox/verification_screen/state/screen_state.dart';
 
@@ -12,8 +13,7 @@ class InputForm extends StatefulWidget {
 class _InputFormState extends State<InputForm> {
   @override
   Widget build(BuildContext context) {
-    ScreenState state =
-        context.dependOnInheritedWidgetOfExactType<ScreenState>()!;
+    ScreenState state = Provider.of<ScreenState>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Container(

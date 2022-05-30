@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sandbox/const_style.dart';
 import 'package:sandbox/verification_screen/state/screen_state.dart';
 import 'package:sandbox/verification_screen/view/verification_input.dart';
@@ -15,8 +16,7 @@ class _VerificationViewState extends State<VerificationView> {
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
-    ScreenState state =
-        context.dependOnInheritedWidgetOfExactType<ScreenState>()!;
+    ScreenState state = Provider.of<ScreenState>(context);
     return Scaffold(
         body: SafeArea(
             child: Column(
